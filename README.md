@@ -13,7 +13,7 @@ ftra <target-file> <width> <height> <type>
 | `<height>` | Converted image height (px). |
 | `<type>` | Target file type. |
 
-Transforms an image, changing its dimensions and type. Currently, only image file types with some transparency can be converted to another type which also supports transparency. E.g., PNG with transparent areas to webP.
+Transforms an image, changing its dimensions and type. Currently, only image files with some transparency can be converted to another type which also supports transparency. E.g., PNG with transparent areas to webP.
 
 ### wbtra (Whatsapp Batch TRAnsform)
 
@@ -25,4 +25,4 @@ wbtra <dir>
 |--------------|-------------|
 | `dir` | Absolute path of directory containing only images that can be processed by `ftra`. |
 
-Transforms images in a directory, setting their dimensions to 512x512 px and their type to WebP. The output images are placed in a new directory in %USERPROFILE%\Desktop. The development of this script emerged from the necessity to convert WhatsApp stickers provided in PNG format with varying dimensions to the required standard for providing these stickers in a stickers app.
+Transforms images in a directory, setting their dimensions to 512x512 px and their type to webP. The output images are placed in a new directory in %USERPROFILE%\Desktop. The development of this script emerged from the necessity to convert WhatsApp stickers provided in PNG format with varying dimensions to the required standard for providing these stickers in a stickers app.
