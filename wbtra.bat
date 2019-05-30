@@ -11,4 +11,4 @@ for %%a in (%targetDir%) do set outDir=%%~dpa\%srcDir%[webp]
 mkdir %outDir%
 
 rem Transform images into new directory
-for %%f in (%targetDir%\*.png) do witra %%f 512 512 %outDir%
+for %%f in (%targetDir%\*.png) do witra %%f %outDir%
