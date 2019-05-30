@@ -1,5 +1,5 @@
 ## Image processing
-The scripts in this category require [ImageMagick](https://imagemagick.org/) and [cwebp](https://developers.google.com/speed/webp/docs/precompiled) to be installed and accessible from any path in cmd.exe (`Path` user environment variable may need to be configured).
+The scripts in this category require [ImageMagick](https://imagemagick.org/) and [cwebp](https://developers.google.com/speed/webp/docs/precompiled) to be installed and accessible from any path in cmd.exe (`Path` user environment variable may need to be changed).
 
 ### witra (Whatsapp Image TRAnsform)
 
@@ -8,7 +8,7 @@ witra <target-file> <out-p-dir>
 ```
 | Non-terminal | Description |
 |--------------|-------------|
-| `<target-file>` | Absolute path to a PNG image file. |
+| `<target-file>` | Absolute or relative path to a PNG file. |
 | `<out-p-dir>` | Absolute path of parent directory of output folder. |
 
 Transforms a target PNG image to a 512x512px webP < 100Kb file. Aspect ratio of image contents and transparency are not changed. Files which names contain white spaces or commas are not supported.
