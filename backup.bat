@@ -1,11 +1,26 @@
 @echo off
 
-:: Folder that will be backed up
-set targetFolder=C:\Users\hjcer\Documents\temp\folder
-:: Location where the backup will be created
-set backupLocation=C:\Users\hjcer\Desktop
+:: Run script
+call :main & exit /b
 
+:main
+:: Error message if a file is not found
 set fileNotFound=ERROR: File not found, backup aborted.
+:: Configuration file path
+set confFile=%~dp0\bconf.csv
+
+:: Terminate script if configuration file bconf.txt is not found
+if not exist %confFile% echo %fileNotFound% & exit /b
+
+:: Recover target folder, backup location and
+:: archive password from bconf.txt configuration file
+for /f "tokens=1,2,3 delims=," %%a in (%confFile%) do ^
+set targetFolder=%%a & set backupLocation=%%b & set password=%%c
+
+:: Trim mysterious whitespace
+call :trim targetFolder %targetFolder%
+call :trim backupFolder %backupFolder%
+call :trim password %password%
 
 :: Check for target and location existence
 :: If either doesn't exist, the script terminates
@@ -24,7 +39,14 @@ set day=%%a & set month=%%b & set year=%%c
 for /d %%a in (%targetFolder%) do set folderName=%%~na
 set archiveName=Backup[%folderName%] Date[%day%%month%%year%]
 
-:: Recover archive password from bpass.txt
-for /f "tokens=*" %%a in (bpass.txt) do set password=%%a
+:: Backup file path
+set backupFilePath=%backupLocation%%archiveName%
 :: Update or create backup of target folder
-7z u -r -p%password% "%backupLocation%\%archiveName%" "%targetFolder%"
+7z u -r -p%password% "%backupFilePath%" "%targetFolder%"
+exit /b
+
+:trim
+SetLocal EnableDelayedExpansion
+set args=%*
+for /f "tokens=1*" %%a in ("!args!") do EndLocal & set %1=%%b
+exit /b
