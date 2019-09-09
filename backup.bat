@@ -21,7 +21,7 @@ call :checkFileExistence %backupLocation%
 if %errorlevel%==1 exit /b 1
 
 :: Build name of backup file in the following format:
-:: 	Backup[<target-folder-name>] Date[<day> <month> <year>]
+:: 	 	Backup[<target-folder-name>]
 
 :: Build name of backup file
 for /d %%a in (%targetFolder%) do set folderName=%%~na
@@ -30,7 +30,9 @@ set archiveName=Backup[%folderName%]
 :: Backup file path
 :: Update or create backup of target folder
 7z u -p%password% "%backupLocation%\%archiveName%" -uq0 "%targetFolder%"
-exit /b 0
+
+:: Pause (allow the user to see 7-Zip report), then exit script
+pause & exit /b 0
 
 :checkFileExistence
 :: Error message if a file is not found
