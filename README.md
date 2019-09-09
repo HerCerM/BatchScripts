@@ -1,3 +1,17 @@
+## Security
+
+### backup
+
+```
+backup
+```
+
+Creates (or updates) a password-protected .7z compressed file with the contents of the folder to backup (later referred as `<folder-to-backup>`) in the specified directory (`<location-of-the-backup>`). Each day, the first time the command is run a new .7z file is created. Any subsequent calls during the same day updates the same file. **Update upon the .7z file does not remove files, only adds files or updates modified files**. This script requires a separate configuration file to work. The file must be named *bconf.csv*, it must exist in the same directory as backup.bat and the content must be a single line with the following format:
+
+```
+<folder-to-backup>,<location-of-the-backup>,<password>
+```
+
 ## Image processing
 
 The scripts in this category require [ImageMagick](https://imagemagick.org/) and [cwebp](https://developers.google.com/speed/webp/docs/precompiled) to be installed and accessible from any path in cmd.exe (`Path` user environment variable may need to be configured).
@@ -29,4 +43,4 @@ Processes images contained in the target directory with `witra`. The output imag
 
 ## Recommended setup
 
-Create a directory in %USERPROFILE% and save the batch files in there. Add this folder to the user's Path environment variable. The batch files can now be called like system commands.
+Create a directory in %USERPROFILE% (the home directory) and save the batch files there. Add this folder to the user's Path environment variable. The batch files can now be called like system commands.
