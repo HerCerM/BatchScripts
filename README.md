@@ -10,13 +10,13 @@ Create a directory in %USERPROFILE% (the home directory) and save the batch file
 backup
 ```
 
-Creates (or updates) a password-protected .7z compressed file with the contents of the folder to backup (later referred as `<folder-to-backup>`) in the specified directory (`<location-of-the-backup>`). The first time the script is run an archive will be created. Any subsequent calls to the script (whilst the configuration file bfconf.csv remains the same) will update the archive, deleting from the archive removed files from disk, updating modified files and adding new files. **Neither creating nor updating an archive deletes, adds or modifies sensitive files, i.e. the integrity of `<folder-to-backup>` is kept intact**. This script requires [7-Zip](https://www.7-zip.org/download.html) to be installed and a separate configuration file to work. The file must be named *bconf.csv*, it must exist in the same directory as backup.bat and the content must be a single line with the following format:
+Creates (or updates) a password-protected .7z file with the contents of the folder to backup (`<folder-to-backup>`) in the specified directory (`<location-of-the-backup>`). It makes sense to do a backup on a separate disk; to achieve this, `<location-of-the-backup>` should point to the external disk in the following format: `<disk-letter>:`, e.g.: `D:`. The first time the script is run an archive will be created. Any subsequent calls to the script (whilst the configuration file bconf.csv remains the same) will update the archive, deleting from the archive removed files from disk, updating modified files and adding the new files. **Neither creating nor updating an archive deletes, adds or modifies sensitive files, i.e. the integrity of `<folder-to-backup>` is always kept intact, even if the backup process abruptly terminates**. This script requires [7-Zip](https://www.7-zip.org/download.html) to be installed and a separate configuration file to work. The configuration file must be named *bconf.csv*, it must exist in the same directory as backup.bat and the content must be a single line with the following format:
 
 ```
 <folder-to-backup>,<location-of-the-backup>,<password>
 ```
 
-If the password is omitted, a command line window will prompt the user to enter a password. Pressing just `enter`sets the password to `enter`itself, it's the closes I've found to not setting a password without working extra on the batch script.
+If the password is omitted, a command line window will prompt the user to enter a password. Pressing just `enter`sets the password to `enter` itself, it's the closest I've found to not setting a password without working extra on the batch script.
 
 ## Image processing
 
