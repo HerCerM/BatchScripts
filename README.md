@@ -1,6 +1,6 @@
 ## Recommended setup 💡
 
-Create a directory in %USERPROFILE% (the home directory) and save the batch files there. Add this folder to the user's Path environment variable. If you have trouble modifying the variable there are many helpful resources, e.g.: [this HowTech YouTube video](https://www.youtube.com/watch?v=bEroNNzqlF4). After configuring the Path variable, the batch files can be called like system commands, such as *dir* or *type* (from anywhere in the file system).
+Create a directory in %USERPROFILE% (the home directory) and save the batch files there. Add this folder to the user's Path environment variable. If you have trouble modifying the variable there are many helpful resources, e.g.: [this HowTech YouTube video](https://www.youtube.com/watch?v=bEroNNzqlF4). After configuring the Path variable, the batch files can be called like system commands, such as *dir* or *cd* (from anywhere in the file system).
 
 ## Security
 
